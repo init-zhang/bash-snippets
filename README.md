@@ -76,3 +76,7 @@ a-machine-built-to-end-war-is-always-a-machine-built-to-continue-war
 ```
 
 Pipe `$@` into `grep -o '\w*'` to remove punctuation
+
+## Swap Caps Lock and Esc
+
+X server: `setxkbmap -option caps:swapescape`
