@@ -53,3 +53,26 @@ while true; do
   sleep 1m
 done
 ```
+
+## To Hyphen
+
+```bash
+function to-hyphen() {
+    title=''
+    for arg in "$@"; do title+="${arg,,}-"; done
+    echo "${title%?}"
+}
+```
+
+Usage:
+
+```
+$ to-hyphen Hello World
+hello-world
+$ to-hyphen Does NOT remove punctuation, be wary!
+does-not-remove-punctuation,-be-wary!
+$ to-hyphen A MACHINE BUILT TO END WAR IS ALWAYS A MACHINE BUILT TO CONTINUE WAR
+a-machine-built-to-end-war-is-always-a-machine-built-to-continue-war
+```
+
+Pipe `$@` into `grep -o '\w*'` to remove punctuation
