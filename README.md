@@ -80,3 +80,12 @@ Pipe `$@` into `grep -o '\w*'` to remove punctuation
 ## Swap Caps Lock and Esc
 
 X server: `setxkbmap -option caps:swapescape`
+
+## Directory MOTD
+
+```bash
+function cdmotd() {
+    cd $@
+    [[ -x .motd ]] && ./.motd
+}
+```
