@@ -1,5 +1,7 @@
 #!/bin/bash
 
+shopt -s dotglob
+
 if [ -e "$pattern" ]; then
     vim "$1"
 fi
@@ -7,15 +9,15 @@ fi
 matches=( *"$1"* )
 
 if [ "${matches[0]}" = "*$1*" ]; then
-    vim "$1"
-    exit 0
+    echo No match found
+    exit 1
 elif [ "${#matches[@]}" -eq 1 ]; then
     vim "${matches[0]}"
     exit 0
 else
-    printf 'Multiple matches:\n'
+    echo Multiple matches:
     select f in "${matches[@]}"; do
-        [ -n "$f" ] || { printf 'Invalid choice\n' >&2; continue; }
+        [ -n "$f" ] || { echo Invalid choice >&2; continue; }
         vim "$f"
         break
     done
