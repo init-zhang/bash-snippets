@@ -89,3 +89,15 @@ function cdmotd() {
     [[ -x .motd ]] && ./.motd
 }
 ```
+
+## Files
+
+### vim-glob.sh
+
+`vim-glob.sh file`
+
+Checks if file exists first, if not, it will expand the pattern `*file*` to find a file
+
+On multiple matches, it prompts the user to pick a file using `select`
+
+The pattern matching and expansion is referred to as glob
