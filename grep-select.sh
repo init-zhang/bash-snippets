@@ -11,7 +11,6 @@ count=$(printf '%s\n' "$matches" | sed '/^$/d' | wc -l)
 
 if [ "$count" -eq 0 ]; then
     echo "No matches for '$search_term'" >&2
-    exit 1
 elif [ "$count" -eq 1 ]; then
     eval "$cmd \"$matches\""
 else
