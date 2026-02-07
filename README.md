@@ -90,6 +90,19 @@ function cdmotd() {
 }
 ```
 
+## Power
+
+```bash
+function power() {
+    if [[ -n "$1" ]]; then
+        powerprofilesctl set "$1"
+    else
+        profile="$(powerprofilesctl | awk 'match($0,/^.{2}(\S*):/,m) {print m[1]}' | dmenu -l 3 -p "$(powerprofilesctl get)")"
+        [[ -n $profile ]] && powerprofilesctl set "$profile"
+    fi
+}
+```
+
 ## Files
 
 ### vim-glob.sh
