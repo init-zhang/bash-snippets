@@ -6,8 +6,8 @@ search_term=$1
 options=$2
 cmd=$3
 
-matches=$(printf '%s\n' "$options" | grep -- "$search_term")
-count=$(printf '%s\n' "$matches" | sed '/^$/d' | wc -l)
+matches=$(echo "$options" | grep -- "$search_term")
+count=$(echo "$matches" | grep -c .)
 
 if [ "$count" -eq 0 ]; then
     echo "No matches for '$search_term'" >&2
