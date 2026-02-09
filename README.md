@@ -114,3 +114,18 @@ Checks if file exists first, if not, it will expand the pattern `*file*` to find
 On multiple matches, it prompts the user to pick a file using `select`
 
 The pattern matching and expansion is referred to as glob
+
+### grep-select.sh
+
+Greps $1 on $2, and passes the match to $3
+
+If there are multiple matches, user will be prompted to select a match using `select`
+
+All arguments should be enclosed in `"` to ensure they stay as a single argument
+
+```bash
+grep-select.sh "pattern" "$(ls -ap)" "cd"
+function cd-grep() {
+    grep-select.sh "$1" "$(ls -ap)" "cd"
+}
+```
