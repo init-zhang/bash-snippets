@@ -129,3 +129,19 @@ function cd-grep() {
     grep-select.sh "$1" "$(ls -ap)" "cd"
 }
 ```
+
+### grep-select-min.sh
+
+Minimised version of `grep-select`
+
+### grep-select-onetime.sh
+
+`grep-select` but can be pasted into a Bash session for one session use
+
+Includes wrapper functions for `cd`, `less`, and `vim`
+
+### grep-select-child.sh
+
+`cd` wrapper function that calls `grep-select` for each provided argument
+
+Allows for traversal of subdirectories in one command
