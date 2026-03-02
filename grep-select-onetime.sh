@@ -20,7 +20,11 @@ function grep-select() {
 }
 
 function cg() {
-    grep-select "$1" "$(ls -ap)" "cd"
+    # Commented out in favour of grep-select-child.sh
+    # grep-select "$1" "$(ls -ap)" "cd"
+    for path; do
+        grep-select "$path" "$(ls -ap)" "cd"
+    done
 }
 function lg() {
     grep-select "$1" "$(ls -ap)" "less"
