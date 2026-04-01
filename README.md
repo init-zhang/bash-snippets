@@ -145,3 +145,9 @@ Includes wrapper functions for `cd`, `less`, and `vim`
 `cd` wrapper function that calls `grep-select` for each provided argument
 
 Allows for traversal of subdirectories in one command
+
+### quick-function.sh
+
+Creates a function where `$1` is the function name and `$2` is the function code
+
+Can be used for aliases with arguments
